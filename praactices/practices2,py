@@ -1,0 +1,33 @@
+# Call the main understand
+from tokenizer import (
+    encode,vocab_size
+)
+from training import train_model
+import os
+import json
+all_tokens=[]
+# now call file
+def main():
+  data_set="PY_AJSON"
+  if not  os.path.exist(data_set):
+   raise FileNotFoundError(f" The given file is exist do another things {data_set}")
+  else:
+   with open("data_set",encoding="uts-8")  as f:
+    data=json.load(f)
+    for item in data:
+     data = (
+     f"Qustion":{item[question]}\n
+     f"Answer":{item[answer]}\n
+      )
+    output=encode(data)
+    all_tokens.append(output)
+    rop=train_model(all_tokens,vocab_size)
+  return  rop
+ 
+
+ if __name__ == "__main__":
+ main()
+
+# 
+
+
